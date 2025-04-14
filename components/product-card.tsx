@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/lib/store/features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import {
   Card,
   CardContent,
@@ -23,6 +24,15 @@ function ProductCard({ product }: ProductCardProps) {
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
+    // Show toast notification
+
+    toast.success(`${product.title} added to cart!`, {
+      description: (
+        <span className="text-sm text-muted-foreground">{`Price: $${product.price.toFixed(
+          2
+        )}`}</span>
+      ),
+    });
   };
 
   return (
