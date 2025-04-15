@@ -39,7 +39,7 @@ export default function ProductListingPage() {
         hasMore
       ) {
         const offset = products.length;
-        if (offset > 70) return;
+       
         dispatch(fetchProducts({ offset, limit }));
       }
     };

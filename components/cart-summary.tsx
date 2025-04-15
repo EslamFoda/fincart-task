@@ -20,7 +20,6 @@ import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export default function CartSummary() {
   const cartItems = useSelector(selectCartItems);
@@ -57,13 +56,11 @@ export default function CartSummary() {
               {cartItems.map((item) => (
                 <div key={item.id} className="flex gap-2 pb-4 border-b">
                   <div className="relative h-16 w-16 flex-shrink-0">
-                    <Image
-                      fill
-                      src={
-                        item.images[0] || "/placeholder.svg?height=64&width=64"
-                      }
+                    <img
+                      src={item.images[0] || "/placeholder.png"}
                       alt={item.title}
                       className="object-cover rounded-md h-full w-full"
+                      loading="lazy"
                     />
                   </div>
                   <div className="flex-grow min-w-0">

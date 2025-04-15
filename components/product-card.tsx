@@ -1,7 +1,6 @@
 "use client";
 
 import { memo } from "react";
-import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/lib/store/features/cart/cartSlice";
 import { Button } from "@/components/ui/button";
@@ -41,11 +40,11 @@ function ProductCard({ product }: ProductCardProps) {
         <CardTitle className="line-clamp-1 text-lg">{product.title}</CardTitle>
       </CardHeader>
       <div className="relative h-48 mx-4">
-        <Image
+        <img
           src={product.images[0] || "/placeholder.png"}
           alt={product.title}
-          fill
-          className="object-cover rounded-md"
+          className="object-cover rounded-md h-full w-full"
+          loading="lazy"
         />
       </div>
       <CardContent className="flex-grow">
